@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 /**
  * Created by ejangpa on 1/3/2017.
  */
+
 public class PriorityQueueDemo {
     public static void main(String[] args) {
         PriorityQueue<String> q = new PriorityQueue<String>();
@@ -16,6 +17,4 @@ public class PriorityQueueDemo {
         System.out.println(q.poll());
         System.out.println(q);
     }
-
-
 }
