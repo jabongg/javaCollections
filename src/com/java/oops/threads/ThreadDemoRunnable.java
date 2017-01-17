@@ -1,40 +1,71 @@
 package com.java.oops.threads;
 
-/**
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**11
  * Created by ejangpa on 1/17/2017.
  */
-public class ThreadDemoRunnable implements Runnable{
+public class ThreadDemoRunnable {
+
+    public static ThreadSafeStack queue = new ThreadSafeStack();
+
     public static void main(String[] args ) {
-        ThreadDemoRunnable  threadDemoRunnable = new ThreadDemoRunnable();
-        Thread hare = new Thread(threadDemoRunnable, "Hare");
-        Thread tortoise = new Thread(threadDemoRunnable, "Tortoise");
-        Thread drake = new Thread(threadDemoRunnable, "drake");
-        drake.getState();
-        tortoise.getState();
-        hare.getState();
 
-        hare.start();
-        hare.getState();
-        tortoise.start();
-        tortoise.getState();
-        drake.start();
-        drake.getState();
-
-        /*ThreadGroup threadGroup = new ThreadGroup("ussain bolt");
-        threadGroup.activeCount() ;*/
-    }
-    @Override
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(Thread.currentThread().getName() + " " + (i + 1));
-                    try {
-                        System.out.println(Thread.currentThread().getState());
-                        Thread.sleep(1000);
-                        System.out.println(Thread.currentThread().getState());
-                    } catch (InterruptedException e) {
-
-                        e.printStackTrace();
-                    }
+        for(int i = 0; i < 10000; i++){
+            queue.queue(i);
         }
+
+        Thread thread1 = new Thread( new Labour(queue));
+        Thread thread2 = new Thread( new Labour(queue));
+        thread1.start();
+        thread2.start();
     }
 }
+
+
+class Labour implements Runnable {
+
+    ThreadSafeStack queue;
+
+    Labour(ThreadSafeStack queue){
+        this.queue = queue;
+    }
+
+    public void run() {
+        int count = 0;
+        while(!queue.isEmpty()){
+            int num = queue.dequeue();
+            try {
+                Thread.sleep(10);
+            }catch(Exception e){}
+            count++;
+        }
+        System.out.println(Thread.currentThread().getName() + " : " + count);
+        System.out.println("Labour is going home.");
+    }
+}
+
+class ThreadSafeStack{
+
+    ArrayList<Integer> nums;
+
+    ThreadSafeStack() {
+        nums = new ArrayList<Integer>();
+    }
+
+    public synchronized void queue(int num){
+        nums.add(num);
+    }
+
+    public synchronized int dequeue(){
+        int num = nums.get(nums.size() - 1);
+        nums.remove(nums.size() - 1);
+        return num;
+    }
+
+    public synchronized boolean isEmpty(){
+        return nums.size() == 0;
+    }
+}
+
