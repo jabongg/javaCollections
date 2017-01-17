@@ -1,4 +1,4 @@
-package com.datastructures.sortingalgorithms;
+package com.algorithms.sortingalgorithms;
 
 /**
  * Created by ejangpa on 1/15/2017.
