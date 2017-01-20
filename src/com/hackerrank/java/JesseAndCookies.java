@@ -1,10 +1,19 @@
-package com.datastructures;
+package com.hackerrank.java;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * Created by ejangpa on 1/18/2017.
+ */
+
 
 // Min-Heap formation
 
-import java.util.*;
+        import java.util.*;
 
-public class BuildHeap {
+public class JesseAndCookies {
+
     private int capacity = 10;
     private int size = 0;
 
@@ -123,25 +132,12 @@ public class BuildHeap {
     }
 
     public static void main(String[] args) {
-        BuildHeap buildHeap = new BuildHeap();
+        JesseAndCookies buildHeap = new JesseAndCookies();
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt(); // number of cookies
         int K = scanner.nextInt(); // minimum sweetness of cookies
         for (int i = 0; i < N; i++) {
             buildHeap.add(i);
         }
-
-        buildHeap.add(21);
-        buildHeap.add(10);
-        buildHeap.add(32);
-        buildHeap.add(78);
-        buildHeap.add(83);
-        buildHeap.add(17);
-        buildHeap.add(98);
-        buildHeap.printHeap(buildHeap.items);
-        buildHeap.poll();
-        buildHeap.printHeap(buildHeap.items);
-        buildHeap.poll();
-        buildHeap.printHeap(buildHeap.items);
     }
 }
