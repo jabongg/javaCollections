@@ -7,9 +7,6 @@ package com.hackerrank.java;
 
 import java.io.*;
         import java.util.*;
-        import java.text.*;
-        import java.math.*;
-        import java.util.regex.*;
 
 public class Polygons {
 
@@ -20,20 +17,17 @@ public class Polygons {
     public static void main(String args[] ) throws Exception {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT */
         Scanner scanner = new Scanner(System.in);
-        int n = 6;
-        for (int i = 0; i < n; i++) {
+        while (scanner.hasNext()) {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             int c = scanner.nextInt();
             int d = scanner.nextInt();
             countNumbersOfEachPolygons(a, b, c, d);
         }
-
         System.out.println(countRectangle + " " + countSquare + " " + countPolygon);
     }
 
     public static void countNumbersOfEachPolygons(int a, int b, int c, int d) {
-
         if (a == c && b == d && a!=b  && a > 0 && b > 0) {
             countRectangle++;
         } else if (a == b  && b == c &&  c == d && a > 0 ) {

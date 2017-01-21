@@ -42,6 +42,6 @@ public class HeapPractice {
     }
 
     public static void main(String[] args) {
-
+        int[] heapArray = {40, 38, 39, 36, 33, 18, 12, 8};
     }
 }
