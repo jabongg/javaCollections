@@ -118,19 +118,20 @@ public class BuildHeap {
      */
     public void printHeap(int[] items) {
         for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i]);
+            System.out.print(items[i] + "\t");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
         BuildHeap buildHeap = new BuildHeap();
-        Scanner scanner = new Scanner(System.in);
+       /* Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt(); // number of cookies
         int K = scanner.nextInt(); // minimum sweetness of cookies
         for (int i = 0; i < N; i++) {
             buildHeap.add(i);
         }
-
+*/
         buildHeap.add(21);
         buildHeap.add(10);
         buildHeap.add(32);
@@ -138,6 +139,10 @@ public class BuildHeap {
         buildHeap.add(83);
         buildHeap.add(17);
         buildHeap.add(98);
+        buildHeap.add(32);
+        buildHeap.add(92);
+        buildHeap.add(17);
+
         buildHeap.printHeap(buildHeap.items);
         buildHeap.poll();
         buildHeap.printHeap(buildHeap.items);
