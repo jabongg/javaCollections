@@ -1,19 +1,9 @@
 package com.hackerrank.java;
-
 /**
  * Created by ejangpa on 12/28/2016.
  */
-
-
-import java.io.*;
-        import java.util.*;
-        import java.text.*;
-        import java.math.*;
-        import java.util.regex.*;
-
+import java.util.*;
 public class BalancedBrackets {
-
-
     public static boolean isBalanced(String expression) {
         char[] bracketArray;
         bracketArray = expression.toCharArray();
@@ -27,39 +17,27 @@ public class BalancedBrackets {
         }
         else {
             for( i = 0; i < bracketArray.length; i++) {
-                if(bracketArray[i] == '{'
-                        || bracketArray[i] == '['
-                        || bracketArray[i] == '('
-                        ) {
-                    stack.push(bracketArray[i]);
-                }
-                switch (bracketArray[i]) {
+                switch (bracketArray[i]){
+                    case '{':
+                    case '[':
+                    case '(':
+                        stack.push(bracketArray[i]);
+                        break;
                     case '}':
-                        if(stack.isEmpty() || stack.pop() != '{');
-                        return false;
+                        if (stack.isEmpty() || stack.pop() != '{')
+                            return false;
+                        break;
                     case ']':
-                        if(stack.isEmpty() || stack.pop() != '[');
-                        return false;
+                        if (stack.isEmpty() || stack.pop() != '[')
+                            return false;
+                        break;
                     case ')':
-                        if(stack.isEmpty() || stack.pop() != '(');
-                        return false;
-                }
-                /*else if(bracketArray[i] == '}' ) {
-                    if(stack.isEmpty() ||  stack.pop() != '{' ) {
-                        return false;
-                    }
-                }
-                else if(bracketArray[i] == ']' ) {
-                    if(stack.isEmpty() ||  stack.pop() != '[' ) {
-                        return false;
-                    }
-                }
-                else if(bracketArray[i] == ')' ) {
-                    if(stack.isEmpty() ||  stack.pop() != '(' ) {
-                        return false;
-                    }
-                }*/
-            }
+                        if (stack.isEmpty() || stack.pop() != '(')
+                            return false;
+                        break;
+                }// end switch
+            }// end for
+
             if(!stack.isEmpty()) {
                 return false;
             }

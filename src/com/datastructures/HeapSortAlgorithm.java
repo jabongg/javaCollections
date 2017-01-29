@@ -96,7 +96,7 @@ public class HeapSortAlgorithm {
         BuildMaxHeap(A);
         // One by one extract an element from heap
         //and get the sorted array
-        for (int i=n-1; i>=0; i--)
+        for (int i = n - 1; i >= 0; i--)
         {
             // Move top root element to end element
             swap(0,i);
