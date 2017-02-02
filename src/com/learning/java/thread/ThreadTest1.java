@@ -1,51 +1,17 @@
 package com.learning.java.thread;
 
 /**
- * Created by ejangpa on 1/17/2017.
+ * Created by ejangpa on 2/1/2017.
  */
 
-public class ThreadTest1 {
-    public static void main (String [] args)
-    {
-        final Foo f = new Foo();
-        Thread t = new Thread(new Runnable()
-        {
-            public void run()
-            {
-                f.doStuff();
-            }
-        });
-        Thread g = new Thread()
-        {
-            public void run()
-            {
-                f.doStuff();
-            }
-        };
+public class ThreadTest1 implements Runnable{
+    public static void main(String[] args){
+        ThreadTest1 t = new ThreadTest1();
+
         t.start();
-        g.start();
     }
-}
-class Foo
-{
-    int x = 5;
-    public void doStuff()
-    {
-        if (x < 10)
-        {
-            // nothing to do
-            try
-            {
-                wait();
-            } catch(InterruptedException ex) { }
-        }
-        else
-        {
-            System.out.println("x is " + x++);
-            if (x >= 10)
-            {
-                notify();
-            }
-        }
+   static void start() {
+       System.out.println("hello");
     }
+    public void run() { }
 }
