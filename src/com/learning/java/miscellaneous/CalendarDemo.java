@@ -13,5 +13,6 @@ public class CalendarDemo {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String str = simpleDateFormat.format(calendarDemo.getTime());
         System.out.println(str);
+        System.out.println(Calendar.getInstance().getTime());
     }
 }

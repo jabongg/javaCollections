@@ -57,8 +57,8 @@ class TreeNode {
     TreeNode right;
 
     public TreeNode(int data) {
-        this.left = left;
+        this.left = null;
         this.data = data;
-        this.right = right;
+        this.right = null;
     }
 }

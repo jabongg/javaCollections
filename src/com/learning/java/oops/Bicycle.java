@@ -5,8 +5,10 @@ package com.learning.java.oops;
  */
 public class Bicycle implements Cloneable{
     int cadence;
-    int speed;
+    protected int speed;
     int gear;
+
+    public Bicycle(){}
 
     public Bicycle(int startCadence, int startSpeed, int startGear){
         cadence = startCadence;
@@ -18,7 +20,7 @@ public class Bicycle implements Cloneable{
         System.out.println(gear);
     }
 
-    public void setCadence(int newValue) {
+    protected void setCadence(int newValue) {
         cadence = newValue;
         System.out.println(cadence);
     }

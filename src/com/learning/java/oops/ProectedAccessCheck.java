@@ -9,11 +9,7 @@ public class ProectedAccessCheck implements Cloneable{
     protected String carShowRoom = "RacerWorld";
     public static void main(String[] args) throws CloneNotSupportedException{
         ProectedAccessCheck proectedAccessCheck = new ProectedAccessCheck();
-       // System.out.println(proectedAccessCheck.carBrand);
-
-       // ProectedAccessCheck obj1 = new ProectedAccessCheck();
-       // System.out.println(obj1.clone() != obj1);
-        //System.out.println(obj1.clone().getClass() == obj1.getClass());
-        //System.out.println(obj1.clone().equals(obj1));
+        Bicycle b = new Bicycle();
+        int x = b.speed;
     }
 }
