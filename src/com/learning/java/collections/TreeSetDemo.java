@@ -14,18 +14,20 @@ public class TreeSetDemo {
 
     public static void main (String[] args) throws java.lang.Exception
     {
-        // your code goes here
-        try{
-            Set s = new TreeSet();
-            s.add("Aron");
-            s.add(1);
-            Iterator iter = s. iterator();
-            while(iter.hasNext()) {
-                System.out.println(iter.next());
-            }
-        } catch (Exception e) {
-            System.out.print(e);
-        }
+        System.out.println("a".compareTo("b"));
+        System.out.println("z".compareTo("b"));
+        System.out.println("a".compareTo("a"));
+        System.out.println("a".compareTo(null));
+        Set s = new TreeSet();
+        s.add(new StringBuffer("A"));
+        s.add(new StringBuffer("B"));
+        s.add(new StringBuffer("C"));
+        s.add(new StringBuffer("D"));
+        s.add(new StringBuffer("E"));
+        System.out.println(s);
 
+
+
+        System.out.println(s);
     }
 }
