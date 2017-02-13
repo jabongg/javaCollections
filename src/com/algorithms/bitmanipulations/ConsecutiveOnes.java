@@ -9,7 +9,7 @@ public class ConsecutiveOnes {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int maxContiguousOnesCount = findConsecutiveOnes(n);
+        int maxContiguousOnesCount = maxConsecutiveOnes(n) /*findConsecutiveOnes(n)*/;
         System.out.println(maxContiguousOnesCount);
     }
 
@@ -40,6 +40,20 @@ public class ConsecutiveOnes {
             i++;
         }
 
+        return maxContiguousOnesCount;
+    }
+
+    private static int maxConsecutiveOnes(int n) {
+        String binaryString = Integer.toBinaryString(n);
+        System.out.println(binaryString);
+
+        int maxContiguousOnesCount = 0;
+        //count the number of iterations to reach x = 0;
+
+        while (n != 0) {
+            n = n & (n << 1);
+            maxContiguousOnesCount++;
+        }
         return maxContiguousOnesCount;
     }
 }
